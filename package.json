@@ -1,0 +1,26 @@
+{
+  "name": "ioc-migrate",
+  "version": "0.0.1",
+  "description": "An unopinionated Node.js DB migration flow that works for any DB that works for your app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "db",
+    "database",
+    "migration",
+    "migrate"
+  ],
+  "author": "Ethan Garofolo <ethan@suchsoftware.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.4.0",
+    "debug": "^2.2.0",
+    "sprintf-js": "^1.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "sprintf-js": "^1.0.3"
+  }
+}

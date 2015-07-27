@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var debug = require('debug')('ioc-migrate')
+var fs = require('fs')
+var path = require('path')
+var program = require('commander')
+
+var packageJson = require('../package.json')
+var runner = require('../lib/runner')(fs)
+var getAppAdapter = require('../lib/getAppAdapter')
+
+program
+  .version(packageJson.version)
+  .option('-c, --configFile', 'Path to your app\'s migration config file (default: /path/to/app/schema/iocmigrateConfig.js)')
+  .option('-v, --verbose', 'Turn on verbose mode')
+  .parse(process.argv)
+
+var log = program.verbose ? console.log : debug
+var migrateConfigPath = (typeof(program.configFile) === 'undefined' ? path.join(process.cwd(), 'schema', 'iocmigrateConfig.js') : program.configFile).replace('.js', '')
+
+runner(
+  getAppAdapter(migrateConfigPath)
+, log
+, {}
+, function allDone(err, results) {
+    if (err) {
+      console.err(err)
+    } else {
+      console.log(results)
+    }
+  }
+)
