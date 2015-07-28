@@ -22,7 +22,7 @@ require('./testHelper')(function(assert) {
       generator.generate(migrateConfig, 'testMigration', noop, fakeFs, now, function(err, filename) {
         assert.ifError(err) 
   
-        assert.equal(filename, 'foo/2012-01-01_17-00-00-testMigration.js')
+        assert.equal(filename, 'foo/20120101170000_testMigration.js')
         done()
       })
     })
