@@ -11,8 +11,9 @@ var getAppAdapter = require('../lib/getAppAdapter')
 
 program
   .version(packageJson.version)
-  .option('-c, --configFile', 'Path to your app\'s migration config file (default: /path/to/app/schema/iocmigrateConfig.js)')
-  .option('-d, --direction', 'The direction in which to run the migrations.')
+  .option('-c, --configFile [path]', 'Path to your app\'s migration config file (default: /path/to/app/schema/iocmigrateConfig.js)')
+  .option('-d, --direction [dir]', 'The direction in which to run the migrations')
+  .option('-t, --target [version]', 'Migrate from the current state to this migration')
   .option('-v, --verbose', 'Turn on verbose mode')
   .parse(process.argv)
 
@@ -24,10 +25,20 @@ if ('up' !== direction && 'down' !== direction) {
   console.error('OOPS! You specified an invalid migration direction:', program.direction)
 }
 
+
+if ('down' === direction && !program.target) {
+  console.error('OOPS!  You cannot migrate down with supplying a target (-t).  Otherwise, you could trash your entire database.  That would be sub-optimal.')
+}
+
+var target = 'up' === direction ? 99999999999999 : 0  // This module will be good for another 8000 years, almost
+if (program.target) {
+  target = parseInt(program.target)
+}
+
 runner(
   getAppAdapter(migrateConfigPath)
 , log
-, { direction: direction }
+, { direction: direction, targetVersion: target }
 , function allDone(err, results) {
     if (err) {
       console.error(err)
