@@ -1,6 +1,6 @@
 {
   "name": "ioc-migrate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An unopinionated Node.js DB migration flow that works for any DB that works for your app.",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "async": "^1.4.0",
+    "commander": "^2.8.1",
     "debug": "^2.2.0",
     "sprintf-js": "^1.0.3"
   },
