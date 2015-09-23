@@ -23,5 +23,9 @@
   "devDependencies": {
     "mocha": "^2.2.5",
     "sprintf-js": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SuchSoftware/ioc-migrate.git"
   }
 }
