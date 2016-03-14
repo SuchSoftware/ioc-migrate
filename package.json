@@ -30,7 +30,6 @@
   },
   "bin": {
     "ioc-migrate": "bin/migrate",
-    "ioc-migrate-generate": "bin/generate",
-    "ioc-migrate-init": "bin/init"
+    "ioc-migrate-generate": "bin/generate"
   }
 }
