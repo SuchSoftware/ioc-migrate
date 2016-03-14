@@ -35,11 +35,14 @@ runner(
 , log
 , { up: up, targetVersion: target }
 , function allDone(err, results) {
+    console.log('Migrating up?', up)
     if (err) {
       console.error(err)
       console.error(results)
+      process.exit(1)
     } else {
       console.log(results)
+      process.exit(0)
     }
   }
 )

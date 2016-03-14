@@ -29,12 +29,12 @@ You provide a function `ioc-migrate` will call.  That function returns an object
 ```javascript
 {
   getDb: function (cb) { } // A function the gets a database connection.  How does your app get a connection to its database?
-, doesMIgrationsTableExist: function (db, cb) { } // Given a connection to your database, how would you tell if the table/collection that keeps track of which migrations you've run exists?
+, doesMigrationsTableExist: function (db, cb) { } // Given a connection to your database, how would you tell if the table/collection that keeps track of which migrations you've run exists?
 , createMigrationsTable: function (db, cb) { } // Given a connection to your database, how do you create a table/collection to keep track of which migrations you've run?
 , getPerformedMigrations: function (db, cb) { } // Given a connection to your databse, how do ask the table/collection that keeps track of which migrations you've run which migrations you've run?
 , migrationsPath: 'path/to/your/migration/files' // where on your filesystem do you store your migration files?
-, insertAMigrationIntoMigrationsTable: function (db, version, cb) // given a connection to your database, how would you insert into your table/collection that keeps track of which migrations you've run that you've run another one?
-, deleteAMigrationFromMigrationsTable: function (db, version, cb) // given a connection to your database, if you had roled back a migration, how would you remove a record of that migration from your table/collection that keeps track of which migrations you've run?
+, insertAMigrationIntoMigrationsTable: function (db, version, cb) { } // given a connection to your database, how would you insert into your table/collection that keeps track of which migrations you've run that you've run another one?
+, deleteAMigrationFromMigrationsTable: function (db, version, cb) { } // given a connection to your database, if you had roled back a migration, how would you remove a record of that migration from your table/collection that keeps track of which migrations you've run?
 }
 ```
 

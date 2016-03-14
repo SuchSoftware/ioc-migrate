@@ -1,6 +1,6 @@
 {
   "name": "ioc-migrate",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "An unopinionated Node.js DB migration flow that works for any DB that works for your app.",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,10 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:SuchSoftware/ioc-migrate.git"
+  },
+  "bin": {
+    "ioc-migrate": "bin/migrate",
+    "ioc-migrate-generate": "bin/generate",
+    "ioc-migrate-init": "bin/init"
   }
 }
